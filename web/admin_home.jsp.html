@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<%@ page import="java.io.*,java.util.*" %>
+<html lang="en" dir="ltr">
+<head>
+
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<link type="text/css" href="menu.css" rel="stylesheet" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="styles/ie.css" type="text/css">
+<script src="scripts/ie/html5shiv.min.js"></script>
+<![endif]-->
+<!-- homepage scripts -->
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+<!-- / homepage scripts -->
+<style type="text/css">
+* { margin:0;
+    padding:0;
+}
+
+#menu {
+    top:30px;
+    margin:0 auto;
+    width:80%;
+}
+
+<!--
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:343px;
+	height:343px;
+	z-index:10000;
+	left: 514px;
+	top: 190px;
+	background-color: #FFFFFF;
+	background-image: url(images/user-admin-gear.png);
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+}
+#apDiv3 {
+	position:absolute;
+	width:765px;
+	height:84px;
+	z-index:10001;
+	left: 319px;
+	top: 134px;
+}
+.wrapper.row2 p {
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #006;
+	text-align: center;
+	font-size: 24px;
+}
+-->
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+   <div id="menu">
+<ul class="menu">
+
+        <li><a href="admin_home.jsp" ><span>    Home   </span></a> 
+        <li><a href="" class="parent"><span>  Operator   </span></a> 
+           <div><ul> 
+                        <li><a href="" ><span></span></a></li>  
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>                     
+                        <li><a href="op_details.jsp" ><span>Operator Details </span></a></li>
+           </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+               
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a></li>             
+            </ul></div>
+        </li>
+        <li><a href="" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+               
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>             
+        </ul></div>
+        </li>             
+        
+        <li><a href="" class="parent"><span>Reports</span></a>  
+        <div><ul>
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>        
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> 
+        </li>
+        <li class="last"><a href="index.html" class="parent" ><span>Log out</span></a></li>
+
+       
+    </ul>
+    
+</div>
+
+    </nav>
+  
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#FFF; color: #333; font-size: 18px; font-weight: bold; font-family: 'Comic Sans MS', cursive;">
+  <p align="center">ADMIN PANEL</p>
+  <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking <a href="help.jsp" >Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms &amp; conditions</a></p>
+    <div id="apDiv2" align="center"><p>
+     <%
+     /*
+   response.setIntHeader("Refresh", 5);
+   Calendar calendar = new GregorianCalendar();
+   String am_pm;
+   int hour = calendar.get(Calendar.HOUR);
+   int minute = calendar.get(Calendar.MINUTE);
+   int second = calendar.get(Calendar.SECOND);
+   if(calendar.get(Calendar.AM_PM) == 0)
+      am_pm = "AM";
+   else
+      am_pm = "PM";
+   String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
+    //out.println("Crrent Time: " + CT + "\n");
+*/
+%>
+   </p>
+   </div>
+  
+   
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+
+
+</body>
+</html>

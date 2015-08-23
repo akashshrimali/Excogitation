@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<html lang="en" dir="ltr">
+<head>
+<script src="gen_validatorv31.js" type="text/javascript" language="javascript"> </script>
+<style>
+input.groovybutton
+{
+   font-size:12px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:navy;
+   width:135px;
+   height:25px;
+   background-image:url(back06a.gif);
+   border-style:none;
+
+}
+
+    </style>
+
+<script language="javascript">
+
+function goLite(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.color = "#AA3300";
+   window.document.forms[FRM].elements[BTN].style.backgroundImage = "url(back06b.gif)";
+}
+
+function goDim(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.color = navy;
+   window.document.forms[FRM].elements[BTN].style.backgroundImage = "url(back06a.gif)";
+}
+</script>
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<link type="text/css" href="menu.css" rel="stylesheet" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="styles/ie.css" type="text/css">
+<script src="scripts/ie/html5shiv.min.js"></script>
+<![endif]-->
+<!-- homepage scripts -->
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+
+
+
+<!-- / homepage scripts -->
+<style type="text/css">
+<!--
+#del{
+	background-image:url(images/delete.png);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#update{
+	background-image:url(images/messiupdate-md.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#email{
+	background-image:url(images/email-icon.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+
+#add{
+	background-image:url(images/add.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:271px;
+	height:420px;
+	z-index:10000;
+	left: 196px;
+	top: 159px;
+	background-color: #FFFFFF;
+	outline-color: #333;
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+	font-weight: bold;
+}
+#apDiv3 {
+	position:absolute;
+	width:958px;
+	height:424px;
+	z-index:10001;
+	left: 196px;
+	top: 156px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: center;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	overflow: scroll;
+}
+#menu {
+    top:30px;
+    margin:0 auto;
+    width:80%;
+}
+.wrapper.row2 #apDiv3 form {
+	color: #000;
+	font-size: 14px;
+	font-family: "Courier New", Courier, monospace;
+}
+.wrapper.row2 #apDiv3 {
+	font-size: 14px;
+	color: #666;
+}
+p {
+	color: #666;
+}
+span {
+	color: #999;
+}
+span {
+	color: #000;
+}
+span {
+	color: #666;
+}
+#apDiv3 {
+	color: #000;
+}
+.wrapper.row2 #apDiv3 {
+	color: #000;
+}
+p {
+	color: #CCC;
+}
+.wrapper.row2 #apDiv3 center form p {
+	color: #000;
+}
+
+-->
+
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+   <div id="menu">
+<ul class="menu">
+
+        <li><a href="admin_home.jsp" ><span>    Home   </span></a> 
+        <li><a href="" class="parent"><span>  Operator   </span></a> 
+           <div><ul> 
+                        <li><a href="" ><span></span></a></li>  
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>                     
+                        <li><a href="op_details.jsp" ><span>Operator details </span></a></li>
+           </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+               
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a></li>             
+            </ul></div>
+        </li>
+        <li><a href="" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+               
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>             
+        </ul></div>
+        </li>             
+        
+        <li><a href="" class="parent"><span>Reports</span></a>  
+        <div><ul>
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>        
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> 
+        </li>
+        <li class="last"><a href="index.html" ><span>Log out</span></a></li>
+
+       
+    </ul>
+    
+</div>
+
+    </nav>
+      
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#FFF; color: #333; font-size: 18px; font-weight: bold; font-family: Verdana, Geneva, sans-serif;">
+  <p align="center">&nbsp;</p>
+  <p>&nbsp;</p>
+  <div id="apDiv3" outline-color: #FFF; outline-width: thin;" >
+       ADMIN CHANGE PASSWORD<br>
+    _______________________________________________________________________________________________________________________<br></br>
+    <center>
+      <form action="admin_change.jsp" name="validation" method="post" >
+         <p>&nbsp;</p>
+         <p>ENTER NEW PASSWORD
+           <input name="pass1" type="text" required="required">
+         </p>
+         <p> REENTER NEW PASSWORD
+           <input name="pass2" type="text" required="required">
+         </p> <input type="submit" class="groovybutton" id="update" value="CHANGE" name="add" />
+      </form>
+     
+    </center>
+         
+    <script type="text/javascript">
+			var val = new Validator("validation");                   
+		           
+    	val.addValidation("pass1","minlen=8",
+                                          "Minimum length for Password is 8");
+         	val.addValidation("pass2","minlen=8",
+                                          "Minimum length for Reentered Password is 8");                                 
+                                          
+		</script>
+   <form method="post" action="deletion_1.jsp">
+       <center>
+        
+        <p> _______________________________________________________________________________________________________________________</p>
+        <p>&nbsp;</p>
+        <p><br>
+        
+      </p>
+      </center>
+    </form>
+  <span>_______________________________________________________________________________________________________________________</span></div>
+  
+  
+  <a></a>
+  <p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking <a href="help.jsp" >Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms &amp; conditions</a></p>
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+
+
+</body>
+</html>

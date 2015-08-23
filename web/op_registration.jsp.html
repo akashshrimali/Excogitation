@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<html lang="en" dir="ltr">
+<head>
+
+<script language="javascript" type="text/javascript" src="datetimepicker.js">
+
+//Date Time Picker script- by TengYong Ng of http://www.rainforestnet.com
+//Script featured on JavaScript Kit (http://www.javascriptkit.com)
+//For this script, visit http://www.javascriptkit.com
+
+</script>
+<script src="gen_validatorv31.js" type="text/javascript" language="javascript"> </script>
+<style type="text/css">
+input.groovybutton
+{
+   font-size:12px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:navy;
+   width:107px;
+   height:19px;
+   background-image:url(back06a.gif);
+   border-style:none;
+ 
+}
+
+</style>
+
+<script language="javascript">
+
+function goLite(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.color = "#AA3300";
+   window.document.forms[FRM].elements[BTN].style.backgroundImage = "url(back06b.gif)";
+}
+
+function goDim(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.color = navy;
+   window.document.forms[FRM].elements[BTN].style.backgroundImage = "url(back06a.gif)";
+}
+
+</script>
+
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<link type="text/css" href="menu.css" rel="stylesheet" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="styles/ie.css" type="text/css">
+<script src="scripts/ie/html5shiv.min.js"></script>
+<![endif]-->
+<!-- homepage scripts -->
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+<!-- / homepage scripts -->
+<style type="text/css">
+<!--
+#del{
+	background-image:url(images/delete.png);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#update{
+	background-image:url(images/messiupdate-md.png);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#email{
+	background-image:url(images/email-icon.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:371px;
+	height:373px;
+	z-index:10000;
+	left: 354px;
+	top: 152px;
+	background-color: #FFFFFF;
+	outline-color: #333;
+	font-size: 12px;
+	text-align: center;
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+	font-weight: bold;
+}
+#apDiv3 {
+	position:absolute;
+	width:688px;
+	height:424px;
+	z-index:10001;
+	left: 469px;
+	top: 159px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: left;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+#menu {
+    top:30px;
+    margin:0 auto;
+    width:80%;
+}
+#apDiv4 {
+	position:absolute;
+	width:383px;
+	height:63px;
+	z-index:10001;
+	left: 123px;
+	background-color: #FFFFFF;
+	top: 159px;
+}
+#apDiv5 {
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:10001;
+}
+#apDiv6 {
+	position:absolute;
+	width:494px;
+	height:51px;
+	z-index:10001;
+	left: 489px;
+	top: 152px;
+	background-color: #FFFFFF;
+	color: #666;
+}
+
+-->
+
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+   <div id="menu">
+<ul class="menu">
+
+        <li><a href="admin_home.jsp" ><span>    Home   </span></a> 
+        <li><a href="" class="parent"><span>  Operator   </span></a> 
+           <div><ul> 
+                        <li><a href="" ><span></span></a></li>  
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>                     
+                        <li><a href="op_details.jsp" ><span>Operator details </span></a></li>
+           </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+               
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a></li>             
+            </ul></div>
+        </li>
+        <li><a href="" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+               
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>             
+        </ul></div>
+        </li>             
+        
+        <li><a href="" class="parent"><span>Reports</span></a>  
+        <div><ul>
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>        
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> 
+        </li>
+        <li class="last"><a href="index.html" ><span>Log out</span></a></li>
+
+       
+    </ul>
+    
+</div>
+
+    </nav>
+      
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#FFF; color: #FFF; font-size: 18px; font-weight: bold; font-family: Verdana, Geneva, sans-serif;">
+  <div id="apDiv2" align="center">
+  <center> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  <p>&nbsp;</p>   
+      <form name="validation" method="post" action="addphoto" encType="multipart/form-data" >
+    <table width="84%" border="2" align="center" cellpadding="4" cellspacing="5" bordercolor="" >
+      <tr>
+        <td width="40%"> FirstName</td>
+        <td width="60%"><input name="firstname" type="text" id="textfield1" style="outline-style:groove" size="50" maxlength="50" required="required"></td>
+        <td> LastName</td>
+        <td ><input name="lastname" type="text" id="textfield2" style="outline-style:groove" size="50" maxlength="50" required="required" ></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td ><label>
+          <input type="radio" name="gender" value="Male" required="required" id="RadioGroup1_0" >
+          Male</label>
+          <label>
+            <input type="radio" name="gender" value="Female" required="required" id="RadioGroup1_1">
+            Female</label></td>
+        <td>Address</td>
+        <td ><textarea name="address" cols="50" rows="2"></textarea></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td ><input name="dob"  type="text" size="50" ></td>
+        <td>Mobile Number</td>
+        <td><input name="mobile" type="text" id="textfield3" style="outline-style:groove" size="20" maxlength="15" required="required"></td>
+      </tr>
+      <tr>
+        <td>Upload Image</td>
+        <td><input type="file" name="user_file" required="required"></td>
+       
+       <td>Country</td>
+        <td ><select name="select4"  required="required">
+    <option value=" " selected>(please select a country)</option>
+    <option value="--">none</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BA">Bosnia and Herzegowina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, the Democratic Republic of the</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote d'Ivoire</option>
+    <option value="HR">Croatia (Hrvatska)</option>
+    <option value="CU">Cuba</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="TP">East Timor</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="FX">France, Metropolitan</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard and Mc Donald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran (Islamic Republic of)</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People's Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macau</option>
+    <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint LUCIA</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SK">Slovakia (Slovak Republic)</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SH">St. Helena</option>
+    <option value="PM">St. Pierre and Miquelon</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen Islands</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands (British)</option>
+    <option value="VI">Virgin Islands (U.S.)</option>
+    <option value="WF">Wallis and Futuna Islands</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="YU">Yugoslavia</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+    </select></td>
+     </tr>
+     <tr>
+        <td>Email </td>
+          <td ><input name="email" type="text" id="textfield" style="outline-style:groove" size="50" maxlength="50" required="required"></td>
+        <td>Pin-code</td>
+      <td ><input name="pincode" type="text" id="textfield4" style="outline-style:groove" size="20" maxlength="20" required="required"></td>
+    <tr>
+        <td>Username</td>
+        <td ><input name="username" type="text" id="textfield5" style="outline-style:groove" size="25" maxlength="25" required="required"></td>
+        <td>Password </td>
+        <td ><input name="password" type="text" id="textfield6" style="outline-style:groove" size="25" maxlength="25" required="required"></td>
+      </tr>
+    </table>
+  </center>
+ 
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+           <p>&nbsp;&nbsp;&nbsp;             &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           </p><center>
+        <p align="right">
+                 
+               <input
+   type="submit"
+   name="button"
+   class="groovybutton"
+   value="Insert Record"
+   title=""
+   onMouseOver="goLite(this.form.name,this.name)"
+   onMouseOut="goDim(this.form.name,this.name)"/> 
+            
+             <input
+   type="reset"
+   name="button2"
+   class="groovybutton"
+   value="Reset"
+   title=""
+   onMouseOver="goLite(this.form.name,this.name)"
+   onMouseOut="goDim(this.form.name,this.name)"/>
+        </p>
+           </center>
+
+    </form>
+<script type="text/javascript">
+			var val = new Validator("validation");                   
+			val.addValidation("firstname","minlen=2",
+                                          "Minimum length for FirstName is 2");
+                        val.addValidation("firstname","alpha");
+                        val.addValidation("lastname","minlen=2",
+                                          "Minimum length for LastName is 2");   
+                        val.addValidation("lastname","alpha");                 
+			val.addValidation("email","email");
+                        val.addValidation("email","maxlen=30",
+                                          "Maximum length for email is 30");
+			val.addValidation("mobile","numeric");
+                        val.addValidation("mobile","minlen=10",
+                                          "Minimum length for MobileNumber is 10");
+			val.addValidation("pincode","numeric");
+                        val.addValidation("pincode","minlen=4",
+                                          "Minimum length for pincode is 4");
+							val.addValidation("password","minlen=8",
+                                          "Minimum length for Password is 8");
+		</script>
+  </div>
+  <p align="center">&nbsp;</p>
+  <div id="apDiv6">NEW OPERATOR REGISTRATION</div>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking <a href="help.jsp" >Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms &amp; conditions</a></p>
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+
+
+</body>
+</html>

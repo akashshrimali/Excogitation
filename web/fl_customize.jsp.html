@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<html lang="en" dir="ltr">
+<head>
+<script src="gen_validatorv31.js" type="text/javascript" language="javascript"> </script>
+<style>
+input.groovybutton
+{
+   font-size:12px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:navy;
+   width:135px;
+   height:25px;
+   background-image:url(back06a.gif);
+   border-style:none;
+
+}
+
+    </style>
+
+<script language="javascript">
+
+function goLite(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.color = "#AA3300";
+   window.document.forms[FRM].elements[BTN].style.backgroundImage = "url(back06b.gif)";
+}
+
+function goDim(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.color = navy;
+   window.document.forms[FRM].elements[BTN].style.backgroundImage = "url(back06a.gif)";
+}
+</script>
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<link type="text/css" href="menu.css" rel="stylesheet" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="styles/ie.css" type="text/css">
+<script src="scripts/ie/html5shiv.min.js"></script>
+<![endif]-->
+<!-- homepage scripts -->
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+
+
+
+<!-- / homepage scripts -->
+<style type="text/css">
+<!--
+#del{
+	background-image:url(images/delete.png);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#update{
+	background-image:url(images/messiupdate-md.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#email{
+	background-image:url(images/email-icon.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+
+#add{
+	background-image:url(images/add.jpg);
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left;
+
+}
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:271px;
+	height:420px;
+	z-index:10000;
+	left: 196px;
+	top: 159px;
+	background-color: #FFFFFF;
+	outline-color: #333;
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+	font-weight: bold;
+}
+#apDiv3 {
+	position:absolute;
+	width:958px;
+	height:424px;
+	z-index:10001;
+	left: 196px;
+	top: 156px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: center;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	overflow: scroll;
+}
+#menu {
+    top:30px;
+    margin:0 auto;
+    width:80%;
+}
+.wrapper.row2 #apDiv3 form {
+	color: #000;
+	font-size: 14px;
+	font-family: "Courier New", Courier, monospace;
+}
+.wrapper.row2 #apDiv3 {
+	font-size: 14px;
+	color: #666;
+}
+p {
+	color: #666;
+}
+span {
+	color: #999;
+}
+span {
+	color: #000;
+}
+span {
+	color: #666;
+}
+#apDiv3 {
+	color: #000;
+}
+.wrapper.row2 #apDiv3 {
+	color: #000;
+}
+p {
+	color: #CCC;
+}
+
+-->
+
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+   <div id="menu">
+<ul class="menu">
+
+        <li><a href="admin_home.jsp" ><span>    Home   </span></a> 
+        <li><a href="" class="parent"><span>  Operator   </span></a> 
+           <div><ul> 
+                        <li><a href="" ><span></span></a></li>  
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>                     
+                        <li><a href="op_details.jsp" ><span>Operator details </span></a></li>
+           </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+               
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a></li>             
+            </ul></div>
+        </li>
+        <li><a href="" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+               
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>             
+        </ul></div>
+        </li>             
+        
+        <li><a href="" class="parent"><span>Reports</span></a>  
+        <div><ul>
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>        
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> 
+        </li>
+        <li class="last"><a href="index.html" ><span>Log out</span></a></li>
+
+       
+    </ul>
+    
+</div>
+
+    </nav>
+      
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#FFF; color: #333; font-size: 18px; font-weight: bold; font-family: Verdana, Geneva, sans-serif;">
+  <p align="center">&nbsp;</p>
+  <p>&nbsp;</p>
+  <div id="apDiv3" outline-color: #FFF; outline-width: thin;" >
+       CUSTOMIZE FLOORS<br>
+    _______________________________________________________________________________________________________________________<br></br>
+    <center>
+      <form action="fl_add.jsp" name="validation" method="post" >
+         <br>Floor Name
+           <input name="floorname" type="text" required="required">
+           Floor Type
+       <select name="floortype" required="required">
+             <option value="FourWheeler"  selected="selected">Four Wheeler
+             </option>
+             <option Value="TwoWheeler"> Two Wheeler
+             </option>
+             <option Value="MultiWheeler"> Multi Wheeler
+             </option>
+        </select>
+           Slots<input name="slots" type="text" required="required">
+           <input type="submit" class="groovybutton" id="add" value="Add Floor" name="add" />
+    </form></center>
+         
+    <script type="text/javascript">
+			var val = new Validator("validation");                   
+			val.addValidation("floorname","minlen=2",
+                                          "Minimum length for FloorName Allowed is 2");
+                        val.addValidation("floorname","alpha");               
+		
+				val.addValidation("slots","numeric");
+                        val.addValidation("slots","gt=0",
+                                          "You must enter atleast 1 slot in floor");
+                        
+		</script>
+   <form method="post" action="deletion_1.jsp">
+       <center>
+        
+        <p> _______________________________________________________________________________________________________________________</p>
+        <p><a>
+          Select Floor ID to Delete or Update&nbsp;&nbsp;</a>
+          <select name="name" >
+            <%
+Class.forName("oracle.jdbc.OracleDriver");
+    Connection con1=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","fyp","fyp");
+    Statement st1=con1.createStatement();
+String query = "select * from tb4_floor";
+ResultSet rs = st1.executeQuery(query);
+while(rs.next())
+{
+int i=rs.getInt("FL_ID");
+
+%>
+            <option value="<%=i%>"><%=rs.getInt("FL_ID")%></option>
+            <%
+
+}
+%>
+          </select> 
+          <a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          <input type="submit" class="groovybutton" value="Delete Floor" id="del" name="del" onClick="ConfirmDelete()" />
+          &nbsp;&nbsp;
+          <input type="submit" class="groovybutton" id="update" value="Update Floor" name="blabel" />
+          </a></p>
+        <p><br>
+        
+      </p>
+      </center>
+    </form>
+    <span>__________________________________________________LIST OF FLOORS___________________________________</span>__________________
+    <center>
+    </center>
+    <p>&nbsp;    </p>
+    <p>
+      <% 
+String str2=null,str3=null,str4=null;
+
+try
+{
+    System.out.println("reached");
+    Class.forName("oracle.jdbc.OracleDriver");
+    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","fyp","fyp");
+    Statement st=con.createStatement();
+
+     
+     out.println("<html>");
+     out.println("<body>");
+      out.println("<div>");
+    out.println("<form>");
+    out.println("<table align='center'  outline-style: solid; outline-color: #000; outline-width: thin;'>");
+    out.println("<tr>");
+    out.println("<td align='center'>");
+    out.println(" ID ");
+    out.println("</td>");
+    out.println("<td align='center'>");
+    out.println("FloorName");
+    out.println("</td>");
+    out.println("<td align='center'>");
+    out.println("Vehicle_Type");
+    out.println("</td>");
+    out.println("<td align='center'>");
+    out.println("Slots");
+    out.println("</td>");
+    out.println("</tr>");
+     
+ int c=0,i=0,str1=0;
+ResultSet rs1=st.executeQuery("select * from tb4_floor");
+    while(rs1.next())
+{
+
+  c=c+1;
+  str1=rs1.getInt("FL_ID");
+  str2=rs1.getString("floor_name");
+  str3=rs1.getString("vehicle_type");
+  str4=rs1.getString("slots");
+  
+    out.println("<tr>");out.println("<td>");out.println("</td>");out.println("</tr>");
+   out.println("<tr>");
+   out.println("<td>");
+   out.println(str1);
+   out.println("</td>");
+    out.println("<td>");
+    out.println(str2);
+    out.println("</td>");
+    out.println("<td>");
+    out.println(str3);
+    out.println("</td>");
+    out.println("<td>");
+    out.println(str4);
+    out.println("</td>");
+
+    
+
+ }
+
+}
+
+catch(Exception ex)
+{
+
+}
+
+     out.println("</table>");
+      out.println("</form>");
+       out.println("</div>");
+     out.println("</body>");
+    out.println("</html>");
+ %>
+    </p>
+  </div>
+  
+  
+  <a></a>
+  <p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking <a href="help.jsp" >Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms &amp; conditions</a></p>
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+
+
+</body>
+</html>

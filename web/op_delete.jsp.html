@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<%@page import="java.sql.*;"%>
+<%@page import="java.io.*;"%>
+<%@page import="java.math.*;" %>
+<%@ page import="java.text.*, java.util.Date" %>
+
+<html lang="en" dir="ltr">
+<head>
+
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="styles/ie.css" type="text/css">
+<script src="scripts/ie/html5shiv.min.js"></script>
+<![endif]-->
+<!-- homepage scripts -->
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+<!-- / homepage scripts -->
+<style type="text/css">
+<!--
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:271px;
+	height:425px;
+	z-index:10000;
+	left: 194px;
+	top: 144px;
+	background-color: #FFFFFF;
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+	font-weight: bold;
+}
+#apDiv3 {
+	position:absolute;
+	width:688px;
+	height:424px;
+	z-index:10001;
+	left: 467px;
+	top: 144px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: left;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<body>
+
+<div class="wrapper row1">
+    <div id="apDiv3" style="overflow: scroll" >
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;<a href="op_registration.jsp">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="op_delete.jsp">Delete</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;List Of Registered Operators
+
+<%
+String str1=null,str2=null,str3=null,str4=null,str5=null,str6=null,str7=null,str8=null,str9=null,str10=null,str11=null;
+try
+{
+    System.out.println("reached");
+    Class.forName("oracle.jdbc.OracleDriver");
+    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","fyp","fyp");
+    Statement st=con.createStatement();
+
+
+     out.println("<html>");
+     out.println("<body>");
+
+     out.println("<br>");
+     out.println("<br>");
+    out.println("<form style='font-size:9px'>");
+    out.println("<table style='font-size:14px'cellpadding='1' cellspacing='0' >");
+    out.println("<tr>");
+    out.println("<td>");
+    out.println(" ID ");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("FirstName");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("LastName");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("Gender");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("Address");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("Mobile-Number");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("DOB");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("Email");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("UserName");
+    out.println("<td>");
+    out.println("Password");
+    out.println("</td>");
+    out.println("<td>");
+    out.println("Registration date");
+    out.println("</td>");
+    out.println("</tr>");
+
+ int c=0;
+ResultSet rs1=st.executeQuery("select * from tb1_registration");
+    while(rs1.next())
+{
+ 
+  str1=rs1.getString("op_id");
+  str2=rs1.getString("first_name");
+  str3=rs1.getString("last_name");
+  str4=rs1.getString("gender");
+  str5=rs1.getString("address");
+  str6=rs1.getString("mobile_number");
+  str7=rs1.getString("dob");
+  str8=rs1.getString("email");
+  str9=rs1.getString("username");
+  str10=rs1.getString("password");
+  str11=rs1.getString("current_date");
+
+   out.println("<tr>");
+   out.println("<td>");
+   out.println( " <input type='text' name='text' value="+str1+" disabled='disabled' size='5' >" );
+   out.println("</td>");
+   out.println("<td>");
+   out.println( " <input type='text' name='text' value="+str2+" disabled='disabled' size='15' >" );
+   out.println("</td>");
+   out.println("<td>");
+   out.println( " <input type='text' name='text' value="+str3+" disabled='disabled' size='15'>" );
+   out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str4+" disabled='disabled' size='15'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str5+" disabled='disabled' size='25'>" );
+       out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str6+" disabled='disabled' size='19'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str7+" disabled='disabled'  size='18'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str8+" disabled='disabled' size='29'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str9+" disabled='disabled' size='20'>" );  out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str10+" disabled='disabled' size='20'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text' value="+str11+" disabled='disabled' size='20'>" );  out.println("</td>");
+    out.println("<td>");
+    out.println("</tr>");
+    c=c+1;
+
+ }
+
+}
+
+catch(Exception ex)
+{
+
+}
+
+     out.println("</table>");
+      out.println("</form>");
+     out.println("</body>");
+    out.println("</html>");
+ %>
+
+ </div>
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+   <div id="menu">
+<ul class="menu">
+
+         <li><a href="admin_home.jsp" class="parent"><span>    Home   </span></a>
+          <li><a href="" class="parent"><span>  Operator   </span></a>
+           <div><ul>
+
+
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>
+
+                        <li><a href="op_mail.jsp" ><span>E-Mail details </span></a></li>
+
+
+
+
+            </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a>
+
+                </li>
+            </ul></div>
+        </li>
+        <li><a href="fl.jsp" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                        <li><a href="fl_slot.jsp"><span>Allocate Slot</span></a></li>
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>
+        </ul></div>
+
+          </li>
+
+        <li><a href="" ><span>Reports</span></a>
+
+        <div><ul>
+
+
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>
+
+
+        </li>
+
+
+
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> </li>
+        <li class="last"><a href="index.html" ><span>Log out</span></a></li>
+    </ul>
+
+</div>
+
+    </nav>
+
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#CCC; color: #FFF;"><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+
+</div>
+
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="help.jsp" >&nbsp;Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms and conditions</a></p>
+   <div id="apDiv2" align="center">
+      New Operator Registration<p>&nbsp;</p><form name="form1" method="post" action="registration.jsp" >
+       <table width="84%" align="center" cellpadding="2" cellspacing="5"  >
+          <tr>
+            <td width="25%"> FirstName</td>
+            <td width="75%" align="left"><input name="firstname" type="text" id="textfield1" size="25" style="outline-style:groove"></td>
+          </tr>
+          <tr>
+            <td> LastName</td>
+            <td align="left"><input name="lastname" type="text" id="textfield2" size="25" style="outline-style:groove" ></td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td align="left"><label>
+              <input type="radio" name="gender" value="Male" id="RadioGroup1_0" >
+              Male</label>
+              <label>
+                <input type="radio" name="gender" value="Female" id="RadioGroup1_1">
+                Female</label></td>
+          </tr>
+
+          <tr>
+            <td>Address</td>
+            <td align="left"><input name="address" type="text" id="textfield" style="outline-style:groove" size="30"/></td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td align="left"><select name="select" id="select">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+              <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+              <option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>
+              <option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>
+              <option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option>
+              <option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+              <select name="select2" id="select2"> <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+              <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+              <option value="11">11</option><option value="12">12
+              </select>
+              <select name="select3" id="select3">
+              <option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
+              <option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option>
+
+              <option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option>
+              <option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option>
+
+
+              <option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option>
+              <option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option>
+
+             <option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option>
+              <option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option>
+
+             <option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option>
+              <option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option>
+
+              <option value="81">81</option><option value="82">82</option><option value="83">83</option><option value="84">84</option><option value="85">85</option>
+              <option value="86">86</option><option value="87">87</option><option value="88">88</option><option value="89">89</option><option value="90">90</option>
+              <option value="91">91</option><option value="92">92
+              <option value="93">93</option><option value="94">94
+              <option value="95">95</option><option value="96">96 </select></td>
+          </tr>
+          <tr>
+            <td>Mobile Number</td>
+            <td align="left"><input name="mobile" type="text" id="textfield3" size="25" style="outline-style:groove"></td>
+          </tr>
+          <tr>
+            <td>Email </td>
+            <td align="left"><p></p>
+              <p>
+                <input name="email" type="text" id="textfield" size="25" style="outline-style:groove">
+              </p></td>
+          </tr>
+          <tr>
+            <td>Username</td>
+            <td align="left"><input type="text" name="username" id="textfield5" style="outline-style:groove"></td>
+          </tr>
+          <tr>
+            <td>Password </td>
+            <td align="left"><input type="text" name="password" id="textfield6" style="outline-style:groove"></td>
+
+          </tr>
+
+        </table>
+        <p><input type="submit" name="button" id="button" value="Register"></td>
+      </p>
+      </form>
+    </div>
+
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="styles/ie.css" type="text/css">
+<script src="scripts/ie/html5shiv.min.js"></script>
+<![endif]-->
+<!-- homepage scripts -->
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+<!-- / homepage scripts -->
+<style type="text/css">
+<!--
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:404px;
+	height:409px;
+	z-index:10000;
+	left: 287px;
+	top: 163px;
+	background-color: #FFFFFF;
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+}
+#apDiv3 {
+	position:absolute;
+	width:397px;
+	height:409px;
+	z-index:10001;
+	left: 693px;
+	top: 162px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: center;
+}
+#apDiv {
+	position:absolute;
+	width:398px;
+	height:260px;
+	z-index:10001;
+	left: 291px;
+	top: 311px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: center;
+}
+-->
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <div id="apDiv3">List Of Registered Operators</div>
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+   <div id="menu">
+<ul class="menu">
+
+         <li><a href="admin_home.jsp" class="parent"><span>    Home   </span></a> 
+          <li><a href="" class="parent"><span>  Operator   </span></a> 
+           <div><ul>
+               
+                        
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>                     
+                        
+                        <li><a href="op_mail.jsp" ><span>E-Mail details </span></a></li>
+                        
+                    
+                
+                
+            </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+               
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a>
+                    
+                </li>             
+            </ul></div>
+        </li>
+        <li><a href="fl.jsp" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+               
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                        <li><a href="fl_slot.jsp"><span>Allocate Slot</span></a></li>
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>             
+        </ul></div>
+                    
+          </li>             
+        
+        <li><a href="" ><span>Reports</span></a>
+        
+        <div><ul>
+               
+   
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>
+                          
+           
+        </li>
+        
+
+        
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> </li>
+        <li class="last"><a href="index.html" ><span>Log out</span></a></li>
+    </ul>
+    
+</div>
+
+    </nav>
+      
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#CCC; color: #FFF;"><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+
+</div>
+
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="help.jsp" >&nbsp;Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms and conditions</a></p>
+   <div id="apDiv2" align="center">
+    Search Operator
+      <p>&nbsp;</p><form name="form1" method="post" action="" >
+       <table width="84%" align="center" cellpadding="2" cellspacing="5"  >
+          <tr>
+            <td width="38%"> Enter Operator Name</td>
+            <td width="62%" align="left"><input name="textfield1" type="text" id="textfield1" size="25" style="outline-style:groove"></td>
+          </tr>
+          <tr>
+            <td> Search by Mobile Number</td>
+            <td align="left"><input name="textfield2" type="text" id="textfield2" size="25" style="outline-style:groove" ></td>
+          </tr>
+          
+         
+        </table>
+        <p><input type="submit" name="button" id="button" value="Search"></td>
+      </p>
+      </form>
+      
+      
+      MATCHING SEARCH
+    </div>
+  
+   
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+</body>
+</html>

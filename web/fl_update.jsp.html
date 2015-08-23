@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<%@page import="java.sql.*;"%>
+<%@page import="java.math.*;" %>
+<%@ page import="java.text.*, java.util.Date" %>
+
+<html lang="en" dir="ltr">
+<head>
+
+<title>EXCOGITATION: FOR SAFE AND SECURED VEHICLE PARKING</title>
+<meta charset="iso-8859-1">
+
+<link type="text/css" href="menu.css" rel="stylesheet" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<link rel="shortcut icon" href="images/favi.jpg" />
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="scripts/jquery-defaultvalue.js"></script>
+<script src="scripts/jquery-browsercheck.js"></script>
+<script src="scripts/jquery-slides.min.js"></script>
+<script>
+$(function () {
+    $('#slider').slides({
+        preload: true,
+        preloadImage: 'images/slider/controls/loading.gif',
+        play: 100,
+        pause: 80,
+        hoverPause: false
+    });
+});
+</script>
+<!-- / homepage scripts -->
+<style type="text/css">
+<!--
+#apDiv1 {
+	position:absolute;
+	width:879px;
+	height:495px;
+	z-index:10000;
+	left: 167px;
+	top: 122px;
+	background-image: url(images/admm.jpg);
+}
+#apDiv2 {
+	position:absolute;
+	width:271px;
+	height:425px;
+	z-index:10000;
+	left: 194px;
+	top: 144px;
+	background-color: #FFFFFF;
+}
+.wrapper.row5 #copyright #apDiv2 form {
+	font-weight: bold;
+	color: #CCC;
+	text-align: center;
+}
+form {
+	color: #FFF;
+}
+.wrapper.row5 #copyright #apDiv2 {
+	color: #003;
+	font-weight: bold;
+}
+
+#menu {
+    top:30px;
+    margin:0 auto;
+    width:80%;
+}
+#apDiv3 {
+	position:absolute;
+	width:959px;
+	height:424px;
+	z-index:10001;
+	left: 195px;
+	top: 148px;
+	background-color: #FFFFFF;
+	color: #003;
+	text-align: left;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<body>
+<%
+ String ab=(String)session.getAttribute("xyz");
+session.setAttribute("id",ab);
+
+int i=Integer.parseInt(ab);
+
+%>
+<div class="wrapper row1">
+    <div id="apDiv3" style="overflow: scroll" >
+        
+    <br><br>
+  <span>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+ <strong><center><a>Update Floor</a></center></strong>
+  <span>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+
+<%
+String str1=null,str2=null,str3=null,str4=null;
+try
+{
+    
+    Class.forName("oracle.jdbc.OracleDriver");
+    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","fyp","fyp");
+    Statement st=con.createStatement();
+     out.println("<html>");
+     out.println("<body>");
+    out.println("<form action='updation_1.jsp' method='post'>");
+    out.println("<table align='center' style='font-size:13px' border='1' bordercolor='#CCCCCC'>");
+    out.println("<tr>");
+    out.println("<td align='center'>");
+    out.println("FloorID");
+    out.println("</td>");
+    out.println("<td align='center'>");
+    out.println("FloorName");
+    out.println("</td>");
+    out.println("<td align='center'>");
+    out.println("FloorType");
+    out.println("</td>");
+    out.println("<td align='center'>");
+    out.println("Slots");
+    out.println("</td>");
+    out.println("</tr>");
+
+ int c=0,x=0;
+ResultSet rs1=st.executeQuery("select * from tb4_floor");
+    while(rs1.next())
+{
+  c=c+1;
+   x=rs1.getInt("FL_ID");
+  str2=rs1.getString("floor_name");
+  str3=rs1.getString("vehicle_type");
+  str4=rs1.getString("slots");
+if(x==i)
+    {
+   out.println("<tr>");
+     out.println("<td>");
+    out.println( " <input type='text'  value="+i+"  size='15'disabled='disabled'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text3' value="+str2+"  size='15'>" );
+    out.println("</td>");
+    out.println("<td>");
+    out.println("<select name='text4'>");
+    if(str3.equalsIgnoreCase("FourWheeler"))
+          {
+      out.println("<option value='FourWheeler' selected='selected'>");
+    out.println("Four Wheeler");   
+    }
+    else
+   {
+    out.println("<option value='FourWheeler'>");
+    out.println("Four Wheeler");
+    }
+   if(str3.equalsIgnoreCase("TwoWheeler"))
+          {
+    out.println("<option value='TwoWheeler' selected='selected'>");
+    out.println("Two Wheeler"); 
+    }   
+   else
+          {
+        
+    out.println("<option value='TwoWheeler'>");
+    out.println("Two Wheeler");
+   }
+   
+    
+      if(str3.equalsIgnoreCase("MultiWheeler"))
+          {
+   out.println("<option value='MultiWheeler' selected='selected'>");
+    out.println("Multi Wheeler");
+    }   
+   else
+          {
+        
+   out.println("<option value='MultiWheeler'>");
+    out.println("Multi Wheeler");
+   }
+   
+    out.println("</select>");
+    out.println("</td>");
+    out.println("<td>");
+    out.println( " <input type='text' name='text5' value="+str4+" size='25'>" );
+    out.println("</td>");
+   out.println("</tr>");
+
+}
+ }
+
+}
+
+catch(Exception ex)
+{
+ex.printStackTrace();
+}
+
+     out.println("</table>");
+   out.println("<center>");
+    out.println( "  <input type='submit' value='DONE' />" );
+   out.println("</center>");
+   out.println("</form>");
+     out.println("</body>");
+    out.println("</html>");
+ %>
+
+ </div>
+  <header id="header" class="clear">
+    <hgroup>
+      <h1 align="left"><a href="index.html"><span><img src="images/Login.jpg" width="167" height="57"></span></a></h1>
+      <h2 align="left"><a> Vehicle Parking Solution</a></h2>
+    </hgroup>
+ 	<nav>
+  <div id="menu">
+<ul class="menu">
+
+        <li><a href="admin_home.jsp" ><span>    Home   </span></a> 
+        <li><a href="" class="parent"><span>  Operator   </span></a> 
+           <div><ul> 
+                        <li><a href="" ><span></span></a></li>  
+                        <li><a href="op_registration.jsp" ><span>Register Operator</span></a></li>                     
+                        <li><a href="op_details.jsp" ><span>Operator Details </span></a></li>
+           </ul></div>
+        </li>
+        <li><a href="" class="parent"><span> Messages </span></a>
+            <div><ul>
+               
+                        <li><a href="adm_compose.jsp"><span>Compose</span></a></li>
+                        <li><a href="adm_inbox.jsp"><span>Inbox</span></a></li>
+                        <li><a href="adm_sent.jsp" ><span>Sent messages</span></a></li>             
+            </ul></div>
+        </li>
+        <li><a href="fl.jsp" class="parent" ><span>Floor Customization  </span></a>
+        <div><ul>
+               
+                        <li><a href="fl_customize.jsp"><span>Customize floors</span></a></li>
+                    
+                        <li><a href="fl_view.jsp"><span>View floor wise</span></a></li>             
+        </ul></div>
+        </li>             
+        
+        <li><a href="" class="parent"><span>Reports</span></a>  
+        <div><ul>
+                        <li><a href="r_vehicle.jsp"><span>Vehicle reports</span></a></li>
+                        <li><a href="r_operator.jsp"><span>Operator reports</span></a></li>        
+        </ul></div>
+        </li>
+        <li><a href="" class="parent"><span>Settings</span></a>
+        <div><ul>
+        <li><a href="adm_pschange.jsp"><span>Change Password</span></a></li>
+        <li><a href="adm_loggedin.jsp"><span>Logged-in timings</span></a></li>
+        <li><a href="adm_security.jsp"><span>Security question</span></a></li>
+          </ul></div> 
+        </li>
+        <li class="last"><a href="index.html" ><span>Log out</span></a></li>
+
+       
+    </ul>
+    
+</div>
+
+    </nav>
+
+  </header>
+</div>
+<div class="wrapper row2" style="background-color:#CCC; color: #FFF;"><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+
+</div>
+
+<div class="wrapper row5">
+  <footer id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2013 - All Rights Reserved - Automated solution for secured underground vehicle parking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="help.jsp" >&nbsp;Help Manual</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Terms and conditions.jsp">Terms and conditions</a></p>
+  </footer>
+</div>
+<script>
+$(document).ready(function () {
+    $("#nl_name, #nl_email").defaultvalue("Name", "Email Address");
+});
+</script>
+</body>
+</html>
